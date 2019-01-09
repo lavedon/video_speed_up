@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "All Videos Fast",
+    "version": "0.1",
+    "description": "This extension makes all videos play at 2.75 speed, by default.",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png" },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts" : [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": ["content.js"],
+	    "run_time": "document_end"
+        }
+    ],
+    "permissions": [
+        "webNavigation",
+        "tabs",
+        "activeTab"
+    ],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
+
